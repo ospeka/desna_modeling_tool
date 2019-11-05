@@ -8,7 +8,7 @@
 <script>
   import MenuBar from '@/components/menuBar'
   import SubmenuContainer from '@/components/submenuContainer'
-  import { mapActions } from 'vuex'
+  // import { mapActions } from 'vuex'
 
   export default {
     name: 'mainContainer',
@@ -22,15 +22,11 @@
       }
     },
     methods: {
-      ...mapActions({
-        TEST: 'main_store/reverseState'
-      }),
       changeActiveTab: function (activeTabName) {
         this.currentTabName = activeTabName
-        console.log(this.$store)
-        // console.log(this.$store.state.main_store.active)
-        // this.$store.dispatch('main_store/reverseState')
-        // this.TEST()
+        // console.log(this.$store)
+        console.log(this.$store.state.mainStore.active)
+        this.$store.dispatch('reverseState')
         // console.log(this.$store.state.main_store.active)
       }
     }
