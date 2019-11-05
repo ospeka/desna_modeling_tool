@@ -1,8 +1,8 @@
 <template>
 	<div>
     <div>
-      <a href="#" v-on:click="active=!active">
-        <strong v-on:click="$emit('accTitleClick', title)" > {{  title  }}</strong>
+      <a href="#" @click="accContentTabHandler">
+        <strong @click="$emit('accTitleClick', title)" > {{  title  }}</strong>
       </a>
   		<div v-show="active"  v-for="item in content" class="content-elem">
         {{  item  }}
@@ -21,6 +21,13 @@ export default {
   data () {
     return {
       active: false
+    }
+  },
+  methods: {
+    accContentTabHandler () {
+      this.active = !this.active
+      // console.log(this.$store.state.mainStore.active)
+      this.$store.dispatch('woDescShow')
     }
   }
 }

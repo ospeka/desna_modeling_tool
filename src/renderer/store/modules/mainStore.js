@@ -11,7 +11,9 @@ const actions = {
 
 const mutations = {
   reverseState (state) {
+    // console.log(state.active)
     state.active = !state.active
+    // console.log(state.active)
   }
 }
 

@@ -20,7 +20,6 @@
     },
     methods: {
       onAccTitle: function (title) {
-        this.$emit('hideDBDesc')
         console.log(title)
       }
     }

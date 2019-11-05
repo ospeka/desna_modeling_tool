@@ -2,11 +2,14 @@
 	<div class="DBContainer">
 		<accordion v-bind:payload="accordion_data"></accordion>
 
-    <div class="content-bar">
+    <div class="content-bar" v-show="$store.state.mainStore.dbDescShow">
       <h2>Path to databases folder</h2>
       <p>Path to databases folder</p>
       <div> here will be db browse elem</div>
       <h4>Short description of databases….</h4>
+    </div>
+    <div v-show="$store.state.mainStore.woDescShow">
+      weather observation content
     </div>
 	</div>
 </template>
@@ -21,7 +24,6 @@ export default {
   },
   data () {
     return {
-      // isTabDescShow: this.tabDescShow,
       accordion_data: [
         {
           title: 'Weather Observations',
