@@ -27,7 +27,6 @@
         // console.log(this.$store)
         console.log(this.$store.state.mainStore.active)
         this.$store.dispatch('reverseState')
-        console.log(this.$store.state.mainStore.active)
       }
     }
   }
