@@ -1,37 +1,41 @@
 <template>
-  <main-container></main-container>
+  <div id="app">
+    <nav-bar></nav-bar>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-  import MainContainer from '@/components/mainContainer'
+  import navBar from '@/components/navBar'
 
   export default {
-    name: 'desnaModelingToolMain',
+    name: 'router_test',
     components: {
-      MainContainer
+      navBar
     }
   }
 </script>
 
 <style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial. sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    margin-top: 60px;
-    height: 100%;
-  }
+    #app {
+      font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
 
-  div {
-    /*box-sizing: border-box;*/
+      text-align: center;
+      height: 100%;
+      display: flex;
+
+      background-color: #FDFDFF;
   }
 
   body {
     margin: 0;
     height: 100%;
   }
+
   html {
     height: 100%;
+
   }
 </style>

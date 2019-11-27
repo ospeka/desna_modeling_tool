@@ -1,15 +1,15 @@
 <template>
-	<div>
-		<div v-for="item in payload"
-		v-bind:key="item.id"
-		>
-		  <accordion-element v-bind:title="item.title" v-bind:content="item.content" v-on:accTitleClick="onAccTitle"/>  
-		</div>
-	</div>
+  <div class="acc-container">
+    <div v-for="item in payload"
+    >
+      <accordion-element :elemData="item"></accordion-element>
+    </div>
+  </div>
 </template>
 
 <script>
   import AccordionElement from '@/components/AccordionElement'
+
   export default {
     name: 'Accordion',
     components: {
@@ -17,18 +17,19 @@
     },
     props: {
       payload: Array
-    },
-    methods: {
-      onAccTitle: function (title) {
-        console.log(title)
-      }
     }
   }
 </script>
 
 <style scoped>
-	div {
+	.acc-container {
 		display: flex;
 		flex-direction: column;
+    height: 100%;
+
+    background-color: #C6C5B9;
+    color: white;
+    font-size: 16px;
+    text-align: left;
 	}
 </style>

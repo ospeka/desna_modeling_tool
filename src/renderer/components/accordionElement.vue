@@ -1,40 +1,79 @@
 <template>
-	<div>
-    <div>
-      <a href="#" @click="accContentTabHandler">
-        <strong @click="$emit('accTitleClick', title)" > {{  title  }}</strong>
-      </a>
-  		<div v-show="active"  v-for="item in content" class="content-elem">
-        {{  item  }}
+  <div class="acc-elem" >
+    <router-link to="/weather-obs">
+      <div class="acc-title" @click="active=!active">
+        <p> {{ elemData.title}}</p>
+        <div v-show="elemData.isArrow" class="arrow">
+          <span v-show="!active">&#9660</span>
+          <span v-show="active">&#9650</span>
+        </div>
       </div>
+    </router-link>
+    <div class="acc-sub-elem" v-show="active" v-for="item in elemData.content"
+    >
+      {{  item  }}
     </div>
-	</div>
+  </div>
 </template>
 
 <script>
-export default {
-  name: 'AccordionElement',
-  props: {
-    title: String,
-    content: Array
-  },
-  data () {
-    return {
-      active: false
-    }
-  },
-  methods: {
-    accContentTabHandler () {
-      this.active = !this.active
-      // console.log(this.$store.state.mainStore.active)
-      this.$store.dispatch('woDescShow')
+  export default {
+    name: 'AccordionElement',
+    props: {
+      elemData: Object
+    },
+    data () {
+      return {
+        active: false
+      }
     }
   }
-}
 </script>
 
 <style scoped>
-.content-elem {
-  padding-left: 10px;
-}
+ .acc-elem {
+    display: flex;
+    flex-direction: column;
+
+    background-color: #C6C5B9;
+    margin-bottom: 5px;
+    color: #FDFDFF;
+  }
+
+  a {
+    text-decoration: none;
+    color: #FDFDFF;
+  }
+
+  .acc-title {
+    display: flex;
+    align-items: center;
+
+    background-color: #62929E;
+    cursor: pointer;
+  }
+
+  .arrow {
+    margin-left: auto;
+
+    padding-right: 5px;
+  }
+
+  .acc-title p {
+    padding-left: 8px;
+  }
+
+  .acc-sub-elem {
+    background-color: #C6C5B9;
+    color: #393D3F;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding-left: 8px;
+  }
+
+  .acc-sub-elem:hover {
+    font-weight: bold;
+    cursor: pointer;
+    background-color: pink;
+  }
 </style>

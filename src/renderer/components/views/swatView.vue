@@ -1,17 +1,14 @@
 <template>
-	<div>
-		<h1> Viz</h1>
-	</div>
+  <div>
+    <h1>swat view</h1>
+  </div>
 </template>
 
 <script>
   export default {
-    name: 'VizContaier'
+    name: 'SwatView'
   }
 </script>
 
 <style scoped>
-	div {
-		color: pink;
-	}	
 </style>
