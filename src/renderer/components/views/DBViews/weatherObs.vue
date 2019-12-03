@@ -15,7 +15,7 @@ Pogodaiklimat.ru provides subdaily observation data for 28 stations within the D
 
 <script>
 export default {
-  name: 'WeatherObs'
+  name: 'weatherObs'
 }
 </script>
 

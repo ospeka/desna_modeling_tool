@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>db view</h1>
+    <h1>OpenWeatherMap API</h1>
     Path to databases folder
 
 To start working with program, you should point the path to the folder of the .sqlite Desna river databases
@@ -10,7 +10,7 @@ To start working with program, you should point the path to the folder of the .s
 
 <script>
 export default {
-  name: 'DbView'
+  name: 'OWMAPIView'
 }
 </script>
 

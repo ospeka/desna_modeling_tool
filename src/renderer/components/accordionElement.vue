@@ -1,6 +1,6 @@
 <template>
   <div class="acc-elem" >
-    <router-link to="/weather-obs">
+    <router-link :to="elemData.to">
       <div class="acc-title" @click="active=!active">
         <p> {{ elemData.title}}</p>
         <div v-show="elemData.isArrow" class="arrow">
@@ -9,9 +9,14 @@
         </div>
       </div>
     </router-link>
-    <div class="acc-sub-elem" v-show="active" v-for="item in elemData.content"
+    <div  v-show="active" v-for="item in elemData.content"
     >
-      {{  item  }}
+    <!-- class="acc-sub-elem" -->
+      <router-link :to="item.to" > 
+        <div class="acc-sub-elem">
+          {{  item.title  }}
+        </div>
+      </router-link>
     </div>
   </div>
 </template>
