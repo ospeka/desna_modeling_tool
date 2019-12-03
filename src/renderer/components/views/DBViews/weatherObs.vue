@@ -1,5 +1,6 @@
 <template>
   <div>
+  	<h1>WeatherObs</h1>
     <h3>
     	Central Geophysical Observatory provides daily weather observations archive for 11 Ukrainian stations. Time period from YYYY/MM/DD to YYYY/MM/DD
 
@@ -15,12 +16,13 @@ Pogodaiklimat.ru provides subdaily observation data for 28 stations within the D
 
 <script>
 export default {
-  name: 'weatherObs'
+  name: 'WeatherObs'
 }
 </script>
 
 <style scoped>
   div {
     display: flex;
+    flex-direction: column;
   }
 </style>

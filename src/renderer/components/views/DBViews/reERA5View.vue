@@ -10,7 +10,7 @@ Description of database parameters (columns names)….
 
 <script>
 export default {
-  name: 'reERA5View'
+  name: 'ReERA5View'
 }
 </script>
 

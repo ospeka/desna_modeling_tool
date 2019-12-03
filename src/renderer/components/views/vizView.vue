@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>viz view</h1>
+    <h1>VizView</h1>
   </div>
 </template>
 

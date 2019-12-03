@@ -1,23 +1,25 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import DbView from '@/components/views/dbView'
-import SwatView from '@/components/views/swatView'
-import VizView from '@/components/views/vizView'
+import DbView from '@/components/views/DbView'
+import SwatView from '@/components/views/SwatView'
+import VizView from '@/components/views/VizView'
 
 import AgricultureView from '@/components/views/DBViews/AgricultureView'
 import CGOView from '@/components/views/DBViews/CGOView'
-import climateProjectionView from '@/components/views/DBViews/climateProjectionView'
+import ClimateProjectionView from '@/components/views/DBViews/ClimateProjectionView'
 import GaugesView from '@/components/views/DBViews/GaugesView'
 import HydroCenterView from '@/components/views/DBViews/HydroCenterView'
 import OWMAPIView from '@/components/views/DBViews/OWMAPIView'
-import pogodaKlimatView from '@/components/views/DBViews/pogodaKlimatView'
-import reERA5View from '@/components/views/DBViews/reERA5View'
+import PogodaKlimatView from '@/components/views/DBViews/PogodaKlimatView'
+import ReERA5View from '@/components/views/DBViews/ReERA5View'
 import RP5View from '@/components/views/DBViews/RP5View'
-import weatherbitAPIView from '@/components/views/DBViews/weatherbitAPIView'
-import weatherFCView from '@/components/views/DBViews/weatherFCView'
-import weatherObs from '@/components/views/DBViews/weatherObs'
+import WeatherbitAPIView from '@/components/views/DBViews/WeatherbitAPIView'
+import WeatherFCView from '@/components/views/DBViews/WeatherFCView'
+import WeatherObs from '@/components/views/DBViews/WeatherObs'
 import WRFView from '@/components/views/DBViews/WRFView'
+
+// import Agriculture2View from '@/components/views/VizViews/Agriculture2View'
 
 Vue.use(Router)
 
@@ -48,7 +50,7 @@ export default new Router({
     },
     {
       path: '/climateProjection-view',
-      component: climateProjectionView
+      component: ClimateProjectionView
     },
     {
       path: '/gauges-view',
@@ -64,11 +66,11 @@ export default new Router({
     },
     {
       path: '/pogodaKlimat-view',
-      component: pogodaKlimatView
+      component: PogodaKlimatView
     },
     {
       path: '/reERA5-view',
-      component: reERA5View
+      component: ReERA5View
     },
     {
       path: '/rp5-view',
@@ -76,15 +78,15 @@ export default new Router({
     },
     {
       path: '/weatherbitAPI-view',
-      component: weatherbitAPIView
+      component: WeatherbitAPIView
     },
     {
       path: '/weatherFC-view',
-      component: weatherFCView
+      component: WeatherFCView
     },
     {
       path: '/weather-obs',
-      component: weatherObs
+      component: WeatherObs
     },
     {
       path: '/wrf-view',

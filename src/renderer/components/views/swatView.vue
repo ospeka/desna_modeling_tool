@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>swat view</h1>
+    <h1>Swat view</h1>
   </div>
 </template>
 

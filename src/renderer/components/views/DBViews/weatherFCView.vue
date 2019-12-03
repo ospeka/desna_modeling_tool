@@ -12,7 +12,7 @@ Uhmi.org.ua provides  Weather Research & Forecasting Model (WRF) 4-days weather 
 
 <script>
 export default {
-  name: 'weatherFCView'
+  name: 'WeatherFCView'
 }
 </script>
 

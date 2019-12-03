@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'weatherbitAPIView'
+  name: 'WeatherbitAPIView'
 }
 </script>
 

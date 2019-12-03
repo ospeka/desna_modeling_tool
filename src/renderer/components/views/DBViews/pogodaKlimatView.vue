@@ -15,7 +15,7 @@ Description of database parameters (columns names)….
 
 <script>
 export default {
-  name: 'pogodaKlimatView'
+  name: 'PogodaKlimatView'
 }
 </script>
 
