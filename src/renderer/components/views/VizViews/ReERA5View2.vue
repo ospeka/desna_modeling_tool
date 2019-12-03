@@ -1,12 +1,12 @@
 <template>
   <div>
-    <h1>ReERA5_2View</h1>
+    <h1>ReERA5View2</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ReERA5_2View'
+  name: 'ReERA5View2'
 }
 </script>
 

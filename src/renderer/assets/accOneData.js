@@ -2,7 +2,7 @@
 const accordionOneData = [
   {
     title: 'Weather Observations',
-    to: '/weather-obs',
+    to: '/weather-obs-view',
     isArrow: true,
     content: [
       {
@@ -15,34 +15,34 @@ const accordionOneData = [
       },
       {
         title: 'Hydrometeorological Center',
-        to: '/hydroCenter-view'
+        to: '/hydro-center-view'
       },
       {
         title: 'pogodaiklimat.ru',
-        to: '/pogodaKlimat-view'
+        to: '/pogoda-klimat-view'
       }
     ],
     id: 0
   },
   {
     title: 'Re-analysis ERA5',
-    to: '/reERA5-view',
+    to: '/re-era5-view',
     isArrow: false,
     content: [],
     id: 1
   },
   {
     title: 'Weather forecast',
-    to: '/weatherFC-view',
+    to: '/weather-fc-view',
     isArrow: true,
     content: [
       {
         title: 'OpenWeatherMap API',
-        to: '/OWMAPI-view'
+        to: '/owm-api-view'
       },
       {
         title: 'Weatherbit API',
-        to: '/weatherbitAPI-view'
+        to: '/weatherbit-api-view'
       },
       {
         title: 'WRF',
@@ -53,7 +53,7 @@ const accordionOneData = [
   },
   {
     title: 'Climate projections',
-    to: '/climateProjection-view',
+    to: '/climate-projection-view',
     isArrow: false,
     content: [],
     id: 3

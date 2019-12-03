@@ -9,9 +9,7 @@
       <accordion :payload="acc1Data"></accordion>
     </div>
     <div class="secondary-bar" v-show="acc2Show">
-      <div>2 accordeon 2</div>
-      <div>2 accordeon 2</div>
-      <div>2 accordeon 2</div>
+      <accordion :payload="acc2Data"></accordion>
     </div>
   </div>
 </template>
@@ -19,6 +17,7 @@
 <script>
   import Accordion from '@/components/accordion'
   import accordionOneData from '@/assets/AccOneData.js'
+  import accordionTwoData from '@/assets/AccTwoData.js'
 
   export default {
     name: 'NavBar',
@@ -29,7 +28,8 @@
       return {
         acc1Show: false,
         acc2Show: false,
-        acc1Data: accordionOneData
+        acc1Data: accordionOneData,
+        acc2Data: accordionTwoData
       }
     },
     methods: {

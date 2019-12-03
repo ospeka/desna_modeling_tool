@@ -1,12 +1,12 @@
 <template>
   <div>
-    <h1>WeatherObs2</h1>
+    <h1>WeatherObs2View</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'WeatherObs2'
+  name: 'WeatherObs2View'
 }
 </script>
 

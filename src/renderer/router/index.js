@@ -4,7 +4,7 @@ import Router from 'vue-router'
 import DbView from '@/components/views/DbView'
 import SwatView from '@/components/views/SwatView'
 import VizView from '@/components/views/VizView'
-
+// db Views
 import AgricultureView from '@/components/views/DBViews/AgricultureView'
 import CGOView from '@/components/views/DBViews/CGOView'
 import ClimateProjectionView from '@/components/views/DBViews/ClimateProjectionView'
@@ -16,10 +16,20 @@ import ReERA5View from '@/components/views/DBViews/ReERA5View'
 import RP5View from '@/components/views/DBViews/RP5View'
 import WeatherbitAPIView from '@/components/views/DBViews/WeatherbitAPIView'
 import WeatherFCView from '@/components/views/DBViews/WeatherFCView'
-import WeatherObs from '@/components/views/DBViews/WeatherObs'
+import WeatherObsView from '@/components/views/DBViews/WeatherObsView'
 import WRFView from '@/components/views/DBViews/WRFView'
-
-// import Agriculture2View from '@/components/views/VizViews/Agriculture2View'
+// Vizualisation Views
+import Agriculture2View from '@/components/views/VizViews/Agriculture2View'
+import CGOandRP5View from '@/components/views/VizViews/CGOandRP5View'
+import ClimateProjection2View from '@/components/views/VizViews/ClimateProjection2View'
+import Gauges2View from '@/components/views/VizViews/Gauges2View'
+import HydrometPogodaKlimatView from '@/components/views/VizViews/HydrometPogodaKlimatView'
+import ReERA5View2 from '@/components/views/VizViews/ReERA5View2'
+import StreamView from '@/components/views/VizViews/StreamView'
+import SubbasinsView from '@/components/views/VizViews/SubbasinsView'
+import SWAToutputsView from '@/components/views/VizViews/SWAToutputsView'
+import WeatherFC2View from '@/components/views/VizViews/WeatherFC2View'
+import WeatherObs2View from '@/components/views/VizViews/WeatherObs2View'
 
 Vue.use(Router)
 
@@ -49,7 +59,7 @@ export default new Router({
       component: CGOView
     },
     {
-      path: '/climateProjection-view',
+      path: '/climate-projection-view',
       component: ClimateProjectionView
     },
     {
@@ -57,19 +67,19 @@ export default new Router({
       component: GaugesView
     },
     {
-      path: '/hydroCenter-view',
+      path: '/hydro-center-view',
       component: HydroCenterView
     },
     {
-      path: '/OWMAPI-view',
+      path: '/owm-api-view',
       component: OWMAPIView
     },
     {
-      path: '/pogodaKlimat-view',
+      path: '/pogoda-klimat-view',
       component: PogodaKlimatView
     },
     {
-      path: '/reERA5-view',
+      path: '/re-era5-view',
       component: ReERA5View
     },
     {
@@ -77,20 +87,66 @@ export default new Router({
       component: RP5View
     },
     {
-      path: '/weatherbitAPI-view',
+      path: '/weatherbit-api-view',
       component: WeatherbitAPIView
     },
     {
-      path: '/weatherFC-view',
+      path: '/weather-fc-view',
       component: WeatherFCView
     },
     {
-      path: '/weather-obs',
-      component: WeatherObs
+      path: '/weather-obs-view',
+      component: WeatherObsView
     },
     {
       path: '/wrf-view',
       component: WRFView
+    },
+    // start of vizualisation views
+    {
+      path: '/agriculture2-view',
+      component: Agriculture2View
+    },
+    {
+      path: '/cgo-and-rp5-view',
+      component: CGOandRP5View
+    },
+    {
+      path: '/climate-projection2-view',
+      component: ClimateProjection2View
+    },
+    {
+      path: '/gauges2-view',
+      component: Gauges2View
+    },
+    {
+      path: '/hydromet-pogodaklimat-view',
+      component: HydrometPogodaKlimatView
+    },
+    {
+      path: '/re-era5-view2',
+      // exception in naming to except reERA52View misscomunication
+      component: ReERA5View2
+    },
+    {
+      path: '/stream-view',
+      component: StreamView
+    },
+    {
+      path: '/subbasins-view',
+      component: SubbasinsView
+    },
+    {
+      path: '/swat-outputs-view',
+      component: SWAToutputsView
+    },
+    {
+      path: '/weather-fc2-view',
+      component: WeatherFC2View
+    },
+    {
+      path: '/weather-obs2-view',
+      component: WeatherObs2View
     }
   ]
 })

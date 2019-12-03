@@ -2,75 +2,70 @@
 const accordionTwoData = [
   {
     title: 'Weather Observations',
-    to: '/weather-obs',
+    to: '/weather-obs2-view',
     isArrow: true,
     content: [
       {
-        title: 'CGO',
-        to: '/cgo-view'
+        title: 'CGO & rp5.ru',
+        to: '/cgo-and-rp5-view'
       },
       {
-        title: 'rp5.ru',
-        to: '/rp5-view'
-      },
-      {
-        title: 'Hydrometeorological Center',
-        to: '/hydroCenter-view'
-      },
-      {
-        title: 'pogodaiklimat.ru',
-        to: '/pogodaKlimat-view'
+        title: 'Hydromet & pogodaklimat',
+        to: '/hydromet-pogodaklimat-view'
       }
     ],
     id: 0
   },
   {
     title: 'Re-analysis ERA5',
-    to: '/reERA5-view',
+    to: '/re-era5-view2',
     isArrow: false,
     content: [],
     id: 1
   },
   {
     title: 'Weather forecast',
-    to: '/weatherFC-view',
+    to: '/weather-fc2-view',
     isArrow: true,
-    content: [
-      {
-        title: 'OpenWeatherMap API',
-        to: '/OWMAPI-view'
-      },
-      {
-        title: 'Weatherbit API',
-        to: '/weatherbitAPI-view'
-      },
-      {
-        title: 'WRF',
-        to: '/wrf-view'
-      }
-    ],
+    content: [],
     id: 2
   },
   {
     title: 'Climate projections',
-    to: '/climateProjection-view',
-    isArrow: false,
+    to: '/climate-projection2-view',
+    isArrow: true,
     content: [],
     id: 3
   },
   {
     title: 'Gauges',
-    to: '/gauges-view',
+    to: '/gauges2-view',
     isArrow: false,
     content: [],
     id: 4
   },
   {
     title: 'Agriculture',
-    to: '/agriculture-view',
+    to: '/agriculture2-view',
     isArrow: false,
     content: [],
     id: 5
+  },
+  {
+    title: 'SWAT outputs',
+    to: '/swat-outputs-view',
+    isArrow: true,
+    content: [
+      {
+        title: 'Stream (output.rch)',
+        to: '/stream-view'
+      },
+      {
+        title: 'Subbasins (output.sub)',
+        to: '/subbasins-view'
+      }
+    ],
+    id: 6
   }
 ]
-export default accordionOneData
+export default accordionTwoData
