@@ -54,7 +54,7 @@ const accordionOneData = [
   {
     title: 'Climate projections',
     to: '/climate-projection-view',
-    isArrow: false,
+    isArrow: true,
     content: [],
     id: 3
   },
