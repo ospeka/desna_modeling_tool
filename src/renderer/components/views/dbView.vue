@@ -65,6 +65,7 @@ export default {
     font-weight: bold;
   }
 
+
   .upload-btn-wrapper input[type=file] {
     font-size: 100px;
     position: absolute;

@@ -1,11 +1,18 @@
 <template>
+  <div class="main">
+  	<div>
+  		<div class="bold">OpenWeatherMap.org </div> provides…
+    </div>
+
   <div>
-    <h1>weatherFCView</h1>
-    OpenWeatherMap.org provides…
+  	<div class="bold" >Weatherbit.io </div> provides…
+  </div>
 
-Weatherbit.io provides…
-
-Uhmi.org.ua provides  Weather Research & Forecasting Model (WRF) 4-days weather forcast data
+  <div>
+  	Uhmi.org.ua provides  Weather Research & Forecasting Model 
+  	<div class="bold">(WRF)</div>
+  	4-days weather forcast data
+  </div>
 
   </div>
 </template>
@@ -17,8 +24,24 @@ export default {
 </script>
 
 <style scoped>
-  div {
+  .main {
     display: flex;
     flex-direction: column;
+
+    margin-top: 5%;
+    margin-right: 1%;
+    color: #393D3F;
+    padding-left: 5%;
+    text-align: left;
+    font-size: 18px;
+  }
+
+  .main div {
+    margin-bottom: 15px;
+  }
+
+  .bold {
+    display: inline-block;
+    font-weight: bold;
   }
 </style>

@@ -1,10 +1,11 @@
 <template>
-  <div>
-    <h1>Gauges View</h1>
-Gauges  database includes information about water discharge, sediment, and water quality for 5 Ukrainian gauges and water discharge for 7 Russians gauges within the Desna river basin. Time period from YYYY/MM/DD to YYYY/MM/DD
-Description of database parameters (columns names)….
-
-
+  <div class="main">
+    <div><div class="bold">Gauges</div>
+      database includes information about water discharge, sediment, and water quality for 5 Ukrainian gauges and water discharge for 7 Russians gauges within the Desna river basin. Time period from YYYY/MM/DD to YYYY/MM/DD
+    </div>
+    <div class="descr">
+      Description of database parameters (columns names)….
+    </div>
   </div>
 </template>
 
@@ -15,8 +16,24 @@ export default {
 </script>
 
 <style scoped>
-  div {
+    .main {
     display: flex;
     flex-direction: column;
+
+    margin-top: 5%;
+    margin-right: 1%;
+    color: #393D3F;
+    padding-left: 5%;
+    text-align: left;
+    font-size: 18px;
+  }
+
+  .descr {
+    margin-top: 40px;
+  }
+
+  .bold {
+    display: inline-block;
+    font-weight: bold;
   }
 </style>

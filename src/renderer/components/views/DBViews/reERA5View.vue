@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <h1>reERA5View</h1>
-    ERA5 is the latest climate reanalysis produced by European Centre for Medium-Range Weather Forecasts (ECMWF). Time period from YYYY/MM/DD to YYYY/MM/DD
-Description of database parameters (columns names)….
-
-
+  <div class="main">
+    <div class="descr">
+      <div class="bold">ERA5 is the latest climate reanalysis produced by</div>
+      European Centre for Medium-Range Weather Forecasts (ECMWF). Time period from YYYY/MM/DD to YYYY/MM/DD
+    </div>
+    <div class="descr-2">Description of database parameters (columns names)….</div>
   </div>
 </template>
 
@@ -15,8 +15,29 @@ export default {
 </script>
 
 <style scoped>
-  div {
+  .main {
     display: flex;
     flex-direction: column;
+
+    margin-top: 5%;
+    margin-right: 1%;
+    color: #393D3F;
+    padding-left: 5%;
+    text-align: left;
+    font-size: 18px;
+  }
+
+  .descr-2 {
+    margin-top: 3%;
+  }
+
+  .desc {
+    display: inline-block;
+  }
+
+  .bold {
+    display: inline-block;
+
+    font-weight: bold;
   }
 </style>
