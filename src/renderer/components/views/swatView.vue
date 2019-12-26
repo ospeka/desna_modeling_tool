@@ -22,7 +22,12 @@
       </div>
       <div class="righted">
         <button class="write-swat-files">Write SWAT files</button>
-        <div class="hint">?</div>
+        <div class="hint">
+          ?
+          <span class="tool-tip-text">
+            Write SWAT weather input files (pcp1.pcp, tmp1.tmp, hmd.hmd, slr.slr, wnd.wnd) and modify file.cio according to timeline)
+          </span>
+        </div>
       </div>
     </div>
     <div class="dates">
@@ -84,6 +89,22 @@
       </div>
       <button class="add-button">Add</button>
     </div>
+    <div class="modify-run">
+      <div class="modify">
+        <div class="modify-text">
+          Modify
+          <span>file.cio</span>
+          (optional)
+        </div>
+        <div class="hint">
+          ?
+          <span class="tool-tip-text">
+            file.cio is automatically modified according to timeline. But for SWAT-familiar users, it’s possible to make changes before running SWAT
+          </span>
+        </div>
+      </div>
+      <button class="btn">Run SWAT</button>
+    </div>
   </div>
 </template>
 
@@ -102,6 +123,32 @@
     color: #393D3F;
     padding-left: 3%;
     text-align: left;
+  }
+
+  .modify-text {
+    display: inline;
+    cursor: pointer;
+  }
+
+  .modify-text span {
+    color: #62929E;
+  }
+
+  .modify-run {
+    display: flex;
+
+    justify-content: space-between;
+    width: 90%;
+    height: 40px;
+  }
+
+  .modify {
+    display: flex;
+    align-items: center;
+  }
+
+  .modify .hint {
+    margin-left: 15px;
   }
 
   .dropdown {
@@ -193,10 +240,32 @@
 
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 
     border-radius: 50%;
     height: 30px;
     width: 30px;
+  }
+
+  .hint .tool-tip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #FDFDFF;
+    border: solid;
+    border-color: #546A7B;
+    color: #393D3F;
+    text-align: center;
+    border-radius: 6px;
+    border-width: thin;
+    padding: 5px 0;
+    font-size: 13px;
+
+    position: absolute;
+    z-index: 1;
+  }
+
+  .hint:hover .tool-tip-text {
+    visibility: visible;
   }
 
   .timeline-viz {
