@@ -15,16 +15,36 @@
     </div>
     <div class="timeline-viz">
       <div class="viz">
-        <div class="timeline-blocks"></div>
-        <div class="timeline-blocks"></div>
-        <div class="timeline-blocks"></div>
-        <div class="timeline-blocks"></div>
+        <div class="timeline-blocks" v-if="showTimeBlock1" @click="showTimeBlock1=false">
+          1 Chosen
+        </div>
+        <div class="timeline-blocks timeline-blocks-empty" v-else="!showTimeBlock1">
+          Empty 1
+        </div>
+        <div class="timeline-blocks" v-if="showTimeBlock2" @click="showTimeBlock2=false">
+          2 Chosen
+        </div>
+        <div class="timeline-blocks timeline-blocks-empty" v-else="!showTimeBlock2">
+          Empty 2
+        </div>
+        <div class="timeline-blocks" v-if="showTimeBlock3" @click="showTimeBlock3=false">
+          3 Chosen
+        </div>
+        <div class="timeline-blocks timeline-blocks-empty" v-else="!showTimeBlock3">
+          Empty 3
+        </div>
+        <div class="timeline-blocks" v-if="showTimeBlock4" @click="showTimeBlock4=false">
+          4 possible
+        </div>
+        <div class="timeline-blocks timeline-blocks-empty" v-else="!showTimeBlock4">
+          Empty 4
+        </div>
       </div>
       <div class="righted">
         <button class="write-swat-files">Write SWAT files</button>
         <div class="hint">
           ?
-          <span class="tool-tip-text">
+          <span class="tool-tip-text-2">
             Write SWAT weather input files (pcp1.pcp, tmp1.tmp, hmd.hmd, slr.slr, wnd.wnd) and modify file.cio according to timeline)
           </span>
         </div>
@@ -46,7 +66,9 @@
           <option>Climate projection</option>
         </select>
       </div>
-      <button class="add-button">Add</button>
+      <button class="add-button" @click="showTimeBlock1=true">
+        Add
+      </button>
     </div>
     <div class="hist-section">
       <div class="number">2</div>
@@ -60,7 +82,9 @@
           </option>
         </select>
       </div>
-      <button class="add-button">Add</button>
+      <button class="add-button" @click="showTimeBlock2=true">
+        Add
+      </button>
     </div>
     <div class="hist-section">
       <div class="number">3</div>
@@ -74,7 +98,9 @@
           <option>WRF model</option>
         </select>
       </div>
-      <button class="add-button">Add</button>
+      <button class="add-button" @click="showTimeBlock3=true">
+        Add
+      </button>
     </div>
     <div class="hist-section">
       <div class="number">4</div>
@@ -87,7 +113,10 @@
           <option>Manually defined period YYYY/MM/DD to YYYY/MM/DD</option>
         </select>
       </div>
-      <button class="add-button">Add</button>
+      <button class="write-swat-files" @click="show">Specify dates</button>
+      <button class="add-button" @click="showTimeBlock4=true">
+        Add
+      </button>
     </div>
     <div class="modify-run">
       <div class="modify">
@@ -105,12 +134,44 @@
       </div>
       <button class="btn">Run SWAT</button>
     </div>
+    <modal name="specify-dates" height="auto" :scrollable="true">
+      <button class="add-button" @click="addRow">add</button>
+      <div v-for="(el, ind) in modalData">
+        start date <input type="date">
+        end date <input type="date">
+        <button class="add-button" @click="deleteRow(ind)">Delete</button>
+      </div>
+      <button class="add-button" @click="hide">OK</button>
+    </modal>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'SwatView'
+    name: 'SwatView',
+    data () {
+      return {
+        modalData: [],
+        showTimeBlock1: false,
+        showTimeBlock2: false,
+        showTimeBlock3: false,
+        showTimeBlock4: false
+      }
+    },
+    methods: {
+      addRow () {
+        this.modalData.push('')
+      },
+      deleteRow (index) {
+        this.modalData.splice(index, 1)
+      },
+      show () {
+        this.$modal.show('specify-dates')
+      },
+      hide () {
+        this.$modal.hide('specify-dates')
+      }
+    }
   }
 </script>
 
@@ -205,12 +266,24 @@
   }
 
   .timeline-blocks {
-    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 23%;
     height: 85%;
     background-color: #546A7B;
+    cursor: pointer;
 
     border: 2px solid #546A7B;
     border-radius: 5px;
+    border-width: thin;
+  }
+
+  .timeline-blocks-empty {
+    background-color: #FDFDFF;
+    border-width: thin;
+
   }
 
   .righted {
@@ -225,8 +298,9 @@
     display: flex;
     width: 60%;
     height: 100%;
+    /*padding: 4px;*/
 
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 
     border: 2px solid #546A7B;
@@ -264,7 +338,29 @@
     z-index: 1;
   }
 
+  .hint .tool-tip-text-2 {
+    visibility: hidden;
+    width: 200px;
+    background-color: #FDFDFF;
+    border: solid;
+    border-color: #546A7B;
+    color: #393D3F;
+    text-align: center;
+    border-radius: 6px;
+    border-width: thin;
+    padding: 5px 0;
+    font-size: 13px;
+
+    position: absolute;
+    z-index: 1;
+    right: 105px;
+  }
+
   .hint:hover .tool-tip-text {
+    visibility: visible;
+  }
+
+  .hint:hover .tool-tip-text-2 {
     visibility: visible;
   }
 
@@ -282,7 +378,6 @@
     border: 2px solid #546A7B;
     color: #FDFDFF;
     background-color: #546A7B;
-    /*padding: 8px 20px;*/
     font-size: 14px;
     font-weight: bold;
 
