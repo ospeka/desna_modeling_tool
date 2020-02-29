@@ -1,4 +1,4 @@
-// input data(payload) for first accordio that contained in db view
+// input data(payload) for first accordion that contained in db view
 const accordionOneData = [
   {
     title: 'Weather Observations',

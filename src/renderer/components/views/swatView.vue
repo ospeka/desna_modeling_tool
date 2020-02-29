@@ -1,61 +1,18 @@
 <template>
   <div class="main">
     <h2 class="header">Path to SWAT project folder</h2>
-    <div class="browse-bar">
-      <input class="path-holder" type="text">
-      <div class="upload-btn-wrapper">
-        <button class="btn">Browse</button>
-        <input type="file" name="myfile" />
-      </div>
-    </div>
+    <browse-bar></browse-bar>
     <div class="timeline">
       <div class="bold">Timeline</div>
       (Create modeling period and write SWAT
       weather input files)
     </div>
-    <div class="timeline-viz">
-      <div class="viz">
-        <div class="timeline-blocks" v-if="showTimeBlock1" @click="showTimeBlock1=false">
-          1 Chosen
-        </div>
-        <div class="timeline-blocks timeline-blocks-empty" v-else="!showTimeBlock1">
-          Empty 1
-        </div>
-        <div class="timeline-blocks" v-if="showTimeBlock2" @click="showTimeBlock2=false">
-          2 Chosen
-        </div>
-        <div class="timeline-blocks timeline-blocks-empty" v-else="!showTimeBlock2">
-          Empty 2
-        </div>
-        <div class="timeline-blocks" v-if="showTimeBlock3" @click="showTimeBlock3=false">
-          3 Chosen
-        </div>
-        <div class="timeline-blocks timeline-blocks-empty" v-else="!showTimeBlock3">
-          Empty 3
-        </div>
-        <div class="timeline-blocks" v-if="showTimeBlock4" @click="showTimeBlock4=false">
-          4 possible
-        </div>
-        <div class="timeline-blocks timeline-blocks-empty" v-else="!showTimeBlock4">
-          Empty 4
-        </div>
-      </div>
-      <div class="righted">
-        <button class="write-swat-files">Write SWAT files</button>
-        <div class="hint">
-          ?
-          <span class="tool-tip-text-2">
-            Write SWAT weather input files (pcp1.pcp, tmp1.tmp, hmd.hmd, slr.slr, wnd.wnd) and modify file.cio according to timeline)
-          </span>
-        </div>
-      </div>
-    </div>
+    <timeline :showTimeBlocks="showTimeBlocks"></timeline>
     <div class="dates">
       <i>YYYY/MM/DD</i>
       <i>YYYY/MM/DD</i>
     </div>
-    <div class="hist-section">
-      <div class="number">1</div>
+    <hist-section @addClick="changeTimeline" :number='1' :show-specify-dates="false" :show-time-blocks="showTimeBlocks">
       <div class="dropdown-elem">
         <div class="dropdown-title">
           Choose historical data source (required)
@@ -66,12 +23,8 @@
           <option>Climate projection</option>
         </select>
       </div>
-      <button class="add-button" @click="showTimeBlock1=true">
-        Add
-      </button>
-    </div>
-    <div class="hist-section">
-      <div class="number">2</div>
+    </hist-section>
+    <hist-section @addClick="changeTimeline"  :number='2' :show-specify-dates="false" :show-time-blocks="showTimeBlocks">
       <div class="dropdown-elem">
         <div class="dropdown-title">
           Choose data source to fill gap till present (optional)
@@ -82,12 +35,8 @@
           </option>
         </select>
       </div>
-      <button class="add-button" @click="showTimeBlock2=true">
-        Add
-      </button>
-    </div>
-    <div class="hist-section">
-      <div class="number">3</div>
+    </hist-section>
+    <hist-section @addClick="changeTimeline"  :number='3' :show-specify-dates="false" :show-time-blocks="showTimeBlocks">
       <div class="dropdown-elem">
         <div class="dropdown-title">
           Choose weather forecast or climate projection data source (optional)
@@ -98,12 +47,8 @@
           <option>WRF model</option>
         </select>
       </div>
-      <button class="add-button" @click="showTimeBlock3=true">
-        Add
-      </button>
-    </div>
-    <div class="hist-section">
-      <div class="number">4</div>
+    </hist-section>
+    <hist-section @addClick="changeTimeline" @showModal="show" :number='4' :show-specify-dates="true" :show-time-blocks="showTimeBlocks">
       <div class="dropdown-elem">
         <div class="dropdown-title">
           Add historical observation to future timeline (optional)
@@ -113,11 +58,7 @@
           <option>Manually defined period YYYY/MM/DD to YYYY/MM/DD</option>
         </select>
       </div>
-      <button class="write-swat-files" @click="show">Specify dates</button>
-      <button class="add-button" @click="showTimeBlock4=true">
-        Add
-      </button>
-    </div>
+    </hist-section>
     <div class="modify-run">
       <div class="modify">
         <div class="modify-text">
@@ -147,18 +88,42 @@
 </template>
 
 <script>
+  import BrowseBar from '../utility/BrowseBar'
+  import Timeline from '../utility/Timeline'
+  import HistSection from '../utility/HistSection'
+
   export default {
     name: 'SwatView',
+    components: {HistSection, Timeline, BrowseBar},
     data () {
       return {
         modalData: [],
-        showTimeBlock1: false,
-        showTimeBlock2: false,
-        showTimeBlock3: false,
-        showTimeBlock4: false
+        showTimeBlocks: {
+          block1: false,
+          block2: false,
+          block3: false,
+          block4: false
+        }
       }
     },
     methods: {
+      changeTimeline (number) {
+        console.log(number)
+        switch (number) {
+          case 1:
+            this.showTimeBlocks.block1 = true
+            break
+          case 2:
+            this.showTimeBlocks.block2 = true
+            break
+          case 3:
+            this.showTimeBlocks.block3 = true
+            break
+          case 4:
+            this.showTimeBlocks.block4 = true
+            break
+        }
+      },
       addRow () {
         this.modalData.push('')
       },
@@ -179,7 +144,6 @@
   .main {
     display: flex;
     flex-direction: column;
-
     width: 100%;
     color: #393D3F;
     padding-left: 3%;
@@ -197,7 +161,6 @@
 
   .modify-run {
     display: flex;
-
     justify-content: space-between;
     width: 90%;
     height: 40px;
@@ -221,37 +184,12 @@
   .dropdown-elem {
     display: flex;
     flex-direction: column;
-
     width: 60%;
-  }
-
-  .number {
-    color: #62929E;
-    font-size: 22px;
-    font-weight: bold;
-    border: 2px solid #62929E;
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .hist-section {
-    display: flex;
-    width: 90%;
-    height: 40px;
-    justify-content: space-between;
-
-    margin-bottom: 30px;
   }
 
   .dates {
     display: flex;
     justify-content: space-between;
-
     width: 60%;
   }
 
@@ -261,50 +199,7 @@
     background-color: #546A7B;
     font-size: 16px;
     font-weight: bold;
-
     width: 60px;
-  }
-
-  .timeline-blocks {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 23%;
-    height: 85%;
-    background-color: #546A7B;
-    cursor: pointer;
-
-    border: 2px solid #546A7B;
-    border-radius: 5px;
-    border-width: thin;
-  }
-
-  .timeline-blocks-empty {
-    background-color: #FDFDFF;
-    border-width: thin;
-
-  }
-
-  .righted {
-    display: flex;
-    height: 100%;
-
-    width: 40%;
-    justify-content: flex-end;
-  }
-
-  .viz {
-    display: flex;
-    width: 60%;
-    height: 100%;
-    /*padding: 4px;*/
-
-    justify-content: space-around;
-    align-items: center;
-
-    border: 2px solid #546A7B;
-    border-radius: 5px;
   }
 
   .hint {
@@ -333,58 +228,12 @@
     border-width: thin;
     padding: 5px 0;
     font-size: 13px;
-
     position: absolute;
     z-index: 1;
   }
-
-  .hint .tool-tip-text-2 {
-    visibility: hidden;
-    width: 200px;
-    background-color: #FDFDFF;
-    border: solid;
-    border-color: #546A7B;
-    color: #393D3F;
-    text-align: center;
-    border-radius: 6px;
-    border-width: thin;
-    padding: 5px 0;
-    font-size: 13px;
-
-    position: absolute;
-    z-index: 1;
-    right: 105px;
-  }
-
   .hint:hover .tool-tip-text {
     visibility: visible;
   }
-
-  .hint:hover .tool-tip-text-2 {
-    visibility: visible;
-  }
-
-  .timeline-viz {
-    display: flex;
-    justify-content: space-between;
-
-    align-items: center;
-    height: 30px;
-    width: 90%;
-  }
-
-  .write-swat-files {
-    height: 100%;
-    border: 2px solid #546A7B;
-    color: #FDFDFF;
-    background-color: #546A7B;
-    font-size: 14px;
-    font-weight: bold;
-
-    margin-right: 20px;
-
-  }
-
   .timeline {
     font-size: 18px;
   }
@@ -392,32 +241,10 @@
   .bold {
     font-weight: bold;
     display: inline-block;
-  }  
+  }
 
   .header {
     margin-bottom: 20px;
-  }
-
-  .browse-bar {
-    display: flex;
-    width: 90%;
-    margin-bottom: 20px;
-  }
-
-  .path-holder {
-    width: 70%;
-    padding-left: 10px;
-    border: 2px solid #546A7B;
-    font-size: 20px;
-    color: #393D3F;
-    outline: none;
-  }
-
-
-  .upload-btn-wrapper {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
   }
 
   .btn {
@@ -429,7 +256,6 @@
     font-size: 18px;
     font-weight: bold;
   }
-
 
   .upload-btn-wrapper input[type=file] {
     font-size: 100px;

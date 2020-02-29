@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import navBar from '@/components/navBar'
+  import navBar from '@/components/utility/navBar'
 
   export default {
     name: 'router_test',

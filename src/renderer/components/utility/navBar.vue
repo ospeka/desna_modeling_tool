@@ -15,7 +15,7 @@
 </template>
 
 <script>
-  import Accordion from '@/components/accordion'
+  import Accordion from '@/components/utility/accordion'
   import accordionOneData from '@/assets/AccOneData.js'
   import accordionTwoData from '@/assets/AccTwoData.js'
 
@@ -60,7 +60,7 @@
     flex-direction: column;
     height: 100%;
     width: 70px;
-    
+
     background-color: #393D3F;
   }
 

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import AccordionElement from '@/components/AccordionElement'
+  import AccordionElement from '@/components/utility/AccordionElement'
 
   export default {
     name: 'Accordion',
