@@ -108,7 +108,6 @@
     },
     methods: {
       changeTimeline (number) {
-        console.log(number)
         switch (number) {
           case 1:
             this.showTimeBlocks.block1 = true

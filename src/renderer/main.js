@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import axios from 'axios'
+
 import VModal from 'vue-js-modal'
+import { LMap, LTileLayer, LMarker } from 'vue2-leaflet'
+import 'leaflet/dist/leaflet.css'
 
 import App from './App'
 import router from './router'
